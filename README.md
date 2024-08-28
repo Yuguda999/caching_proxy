@@ -1,15 +1,30 @@
-# Caching Proxy Server
+# CLI Caching Proxy Tool
 
-## Description
-A simple CLI tool that starts a caching proxy server. It forwards requests to the actual server, caches the responses, and serves them from the cache if the same request is made again.
+A command-line tool that sets up a caching proxy server. The server forwards requests to an origin server, caches the responses, and serves cached responses for repeated requests. It also provides functionality to clear the cache.
+
+## Features
+
+- **Start a Caching Proxy Server:** Run the proxy server on a specified port and forward requests to an origin server.
+- **Cache Responses:** Cache responses from the origin server and serve them for repeated requests to reduce latency and server load.
+- **Cache Headers:** Include headers in the response to indicate whether it was served from the cache or the origin server.
+- **Clear Cache:** Clear the cache with a command to reset the stored responses.
+
+## Installation
+
+### Prerequisites
+
+- Python 3.7+
+- Redis server (for caching backend)
+- Redis Python client (`redis-py`)
+
 
 ## Usage
 
 ### Start the Server
 ```bash
-python main.py --port 3000 --origin http://dummyjson.com
+python main.py --port 3000 --origin https://catfact.ninja/fact --redis-host localhost --redis-port 6379 --redis-db 0
 ```
 ### Clear the Cache
 ```bash
-python main.py --clear-cache --port=3000 --origin=http://dummyjson.com
+python main.py --clear-cache --redis-host localhost --redis-port 6379 --redis-db 0 --port 3000 --origin https://catfact.ninja/fact
 ```

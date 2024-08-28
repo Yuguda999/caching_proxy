@@ -1,9 +1,12 @@
 import unittest
+import redis
 from caching_proxy.cache import Cache
 
 class TestCache(unittest.TestCase):
     def setUp(self):
-        self.cache = Cache()
+        self.cache = Cache(redis_db=1) 
+        self.redis = redis.StrictRedis(db=1)
+        self.redis.flushdb()
 
     def test_set_and_get_cache(self):
         path = "/test-path"
