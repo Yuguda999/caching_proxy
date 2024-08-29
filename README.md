@@ -2,6 +2,8 @@
 
 A command-line tool that sets up a caching proxy server. The server forwards requests to an origin server, caches the responses, and serves cached responses for repeated requests. It also provides functionality to clear the cache.
 
+**project url:** https://roadmap.sh/projects/caching-server
+
 ## Features
 
 - **Start a Caching Proxy Server:** Run the proxy server on a specified port and forward requests to an origin server.
